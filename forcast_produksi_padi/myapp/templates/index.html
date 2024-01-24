@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>PERAMALAN PRODUKSI PADI KANDAGSERANG <br> KAB. PEKALONGAN</h2>
+    <form action="{% url 'predict' %}" method="post">
+        {% csrf_token %}
+        <label for="tahun">Masukkan Tahun:</label>
+        <input type="number" name="tahun" required>
+        <button type="submit">Lakukan Prediksi</button>
+    </form>
+</body>
+</html>
